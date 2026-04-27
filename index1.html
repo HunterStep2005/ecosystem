@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuscaloosa Ecosystem — Techstars Founder Catalyst</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:  #0f2d4a;
+    --teal:  #0d7377;
+    --sky:   #1a9bac;
+    --cream: #f8f5ef;
+    --warm:  #ede9e0;
+    --mid:   #c8c2b4;
+    --dark:  #1c1c1c;
+    --ink:   #3a3a3a;
+    --muted: #7a7265;
+    --white: #ffffff;
+    --high-bg: #d4edf5;
+    --high-fg: #0d5c72;
+    --med-bg:  #d8eedf;
+    --med-fg:  #1a6b35;
+    --low-bg:  #e8e8e8;
+    --low-fg:  #666;
+    --dash-bg: #f0ede8;
+    --dash-fg: #aaa;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 72px 56px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    min-height: 340px;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -80px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    background: var(--teal);
+    opacity: .12;
+  }
+  .cover-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 20px;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.12;
+    color: var(--white);
+    max-width: 640px;
+    margin-bottom: 16px;
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: #6dd5e0;
+  }
+  .cover-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,.6);
+    max-width: 540px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .cover-pills {
+    display: flex; gap: 10px; flex-wrap: wrap;
+  }
+  .cover-pill {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 11px;
+    letter-spacing: .04em;
+  }
+
+  /* ── LAYOUT ── */
+  .page { padding: 52px 72px; max-width: 960px; margin: 0 auto; }
+  .section { margin-bottom: 56px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--navy);
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--teal);
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  /* ── ORG CARDS ── */
+  .org-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .org-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 22px 24px;
+    border-top: 3px solid var(--teal);
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+  }
+  .org-card.amp { border-top-color: #e07a40; }
+  .org-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+  .org-loc {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .org-body {
+    font-size: 12.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .org-contacts {
+    border-top: 1px solid var(--warm);
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .org-contacts-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .contact {
+    font-size: 11.5px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .contact strong { color: var(--navy); font-weight: 600; }
+  .contact em { color: var(--muted); font-style: normal; font-size: 10.5px; }
+
+  /* ── MAPPING TABLE ── */
+  .map-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .map-table thead th {
+    background: var(--navy);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .06em;
+  }
+  .map-table thead th:first-child { text-align: left; }
+  .map-table tbody tr:nth-child(even) { background: var(--warm); }
+  .map-table tbody tr:nth-child(odd)  { background: var(--white); }
+  .map-table tbody td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--warm);
+    text-align: center;
+  }
+  .map-table tbody td:first-child {
+    text-align: left;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 12px;
+  }
+  .map-table tbody tr.tier-anchor td:first-child {
+    border-left: 3px solid var(--teal);
+  }
+  .map-table tbody tr.tier-high td:first-child {
+    border-left: 3px solid #3db07a;
+  }
+  .map-table tbody tr.tier-med td:first-child {
+    border-left: 3px solid #e0a030;
+  }
+  .map-table tbody tr.tier-gen td:first-child {
+    border-left: 3px solid var(--mid);
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 100px;
+    font-size: 10.5px;
+    font-weight: 600;
+  }
+  .b-high { background: var(--high-bg); color: var(--high-fg); }
+  .b-med  { background: var(--med-bg);  color: var(--med-fg); }
+  .b-low  { background: var(--low-bg);  color: var(--low-fg); }
+  .b-dash { background: var(--dash-bg); color: var(--dash-fg); }
+  .b-anchor { background: #dce8f5; color: var(--navy); }
+  .b-tier-high { background: var(--med-bg); color: var(--med-fg); }
+  .b-tier-med  { background: #fef3d8; color: #9b7a00; }
+  .b-tier-gen  { background: var(--warm); color: var(--muted); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; }
+
+  /* ── COMPANY CARDS ── */
+  .company-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .co-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 18px 20px;
+    border: 1px solid var(--warm);
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
+    page-break-inside: avoid;
+  }
+  .co-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    gap: 10px;
+  }
+  .co-name {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+  .co-tag {
+    font-size: 9.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .tag-water   { background: #d4edf5; color: #0d5c72; }
+  .tag-clean   { background: #d8eedf; color: #1a6b35; }
+  .tag-ag      { background: #e7f3e3; color: #2d6a1b; }
+  .tag-ind     { background: #e8e4f0; color: #4a3580; }
+  .tag-food    { background: #fce8e8; color: #8b2222; }
+  .tag-fin     { background: #e0f2f1; color: #00695c; }
+
+  .co-line {
+    font-size: 11.5px;
+    color: var(--muted);
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+  .co-fit-row {
+    margin-bottom: 6px;
+  }
+  .co-fit-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--teal);
+    margin-bottom: 3px;
+  }
+  .co-fit-text {
+    font-size: 11.5px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .co-action-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--navy);
+    margin-bottom: 3px;
+    margin-top: 8px;
+  }
+  .co-action-text {
+    font-size: 11.5px;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .co-card.no-fit {
+    opacity: .75;
+    border-style: dashed;
+  }
+
+  /* ── EVENT SECTION ── */
+  .event-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+  }
+  .event-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 18px 20px;
+    border-top: 3px solid var(--navy);
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  }
+  .event-card.energy { border-top-color: #e07a40; }
+  .event-card.all    { border-top-color: var(--sky); }
+  .event-title {
+    font-weight: 700;
+    font-size: 12.5px;
+    color: var(--navy);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  .event-item {
+    font-size: 11.5px;
+    color: var(--ink);
+    margin-bottom: 7px;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .event-item::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--teal);
+    font-size: 10px;
+    top: 2px;
+  }
+
+  /* ── FIRST CALL BOX ── */
+  .first-call {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-top: 20px;
+  }
+  .first-call-label {
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 10px;
+  }
+  .first-call-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .fc-item strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+  .fc-item span {
+    font-size: 11.5px;
+    color: rgba(255,255,255,.6);
+    line-height: 1.5;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--warm);
+    margin: 40px 0;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .cover { min-height: auto; }
+    .page { padding: 40px 56px; }
+    @page { margin: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-label">Techstars Water Tech &amp; Sustainability · Founder Catalyst Program</div>
+  <h1>Tuscaloosa's <em>Federal Water Cluster</em> — Ecosystem Partner Brief</h1>
+  <p class="cover-sub">A condensed guide to NOAA, USGS, the Alabama Water Institute, and AMP — where they sit, who to call, and how they map to your 20-company cohort.</p>
+  <div class="cover-pills">
+    <span class="cover-pill">NOAA National Water Center</span>
+    <span class="cover-pill">USGS Hydrologic Instrumentation Facility</span>
+    <span class="cover-pill">Alabama Water Institute</span>
+    <span class="cover-pill">Alabama Mobility &amp; Power Center</span>
+    <span class="cover-pill">Tuscaloosa, AL · 2026</span>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ORGS -->
+  <div class="section">
+    <div class="section-label">Partner Organizations</div>
+    <h2>Who's Here &amp; What They Offer</h2>
+
+    <div class="org-grid">
+
+      <!-- NOAA -->
+      <div class="org-card">
+        <div class="org-name">NOAA — National Water Center</div>
+        <div class="org-loc">205 Hackberry Lane, Tuscaloosa · on UA's campus</div>
+        <div class="org-body">
+          The only federal facility of its kind — the NWC runs the <strong>National Water Model</strong>, forecasting streamflow on 2.7 million stream reaches daily. It's the operational brain behind national flood mapping and the IWRSS consortium (NOAA + USGS + USACE + FEMA). Connected to UA through <strong>CIROH</strong>, a $360M NOAA cooperative institute — the largest external award in UA history — giving founders direct access to an open data stack, cloud compute, and 28-institution research network.
+        </div>
+        <div class="org-contacts">
+          <div class="org-contacts-label">Key Contacts</div>
+          <div class="contact"><strong>Ed Clark</strong> — Director, NWC · <em>205-347-1316</em></div>
+          <div class="contact"><strong>Dr. Steve Burian</strong> — Executive Director, CIROH · <em>ciroh@ua.edu</em></div>
+          <div class="contact"><strong>Dr. Sagy Cohen</strong> — Deputy Director, CIROH</div>
+          <div class="contact"><strong>Fernando Salas</strong> — Director, Geo-Intelligence Division, OWP</div>
+        </div>
+      </div>
+
+      <!-- USGS -->
+      <div class="org-card">
+        <div class="org-name">USGS — Hydrologic Instrumentation Facility</div>
+        <div class="org-loc">27 Kirkbride Lane, Tuscaloosa · opened Aug 2024</div>
+        <div class="org-body">
+          A $38.5M national lab relocated from Stennis Space Center — 92,000 sq ft with a <strong>350-ft tow tank</strong> (national velocity calibration reference), 230-ft tilting flume, 100×24 ft wave basin, and the Network Operations Center for all USGS hydrologic monitoring. For sensor, robotics, or hardware founders, this is the gold-standard test environment in North America. Already partners with commercial startups (Jaia Robotics, Deep Analytics) via the FLOW Academy.
+        </div>
+        <div class="org-contacts">
+          <div class="org-contacts-label">Key Contacts</div>
+          <div class="contact"><strong>Derek D. Bussan</strong> — HIF Director · <em>dbussan@usgs.gov</em></div>
+          <div class="contact"><strong>Darrell Lambeth</strong> — Supervisory Hydrologist, Tuscaloosa</div>
+          <div class="contact"><strong>Rodney R. Knight</strong> — LMG WSC Director · <em>rrknight@usgs.gov</em></div>
+          <div class="contact"><strong>Leslie Hsu</strong> — CDI Coordinator (seed grants) · <em>lhsu@usgs.gov</em></div>
+        </div>
+      </div>
+
+      <!-- AWI -->
+      <div class="org-card">
+        <div class="org-name">Alabama Water Institute (AWI)</div>
+        <div class="org-loc">Cyber Hall, 24 Kirkbride Lane, Tuscaloosa · awi@ua.edu · 205-348-5094</div>
+        <div class="org-body">
+          UA's umbrella water research organization — and the connective tissue for everything on this list. Houses CIROH, the Global Water Security Center, Center for Complex Hydrosystems Research (compound flooding &amp; reservoir ops), and CONSERVE (nature-based solutions). 100+ affiliated faculty, no current branded accelerator. <strong>Techstars fills a clear white space here.</strong> Start every conversation through AWI.
+        </div>
+        <div class="org-contacts">
+          <div class="org-contacts-label">Key Contacts</div>
+          <div class="contact"><strong>Matt Womble</strong> — Executive Director · <em>mwomble@ua.edu</em> <span style="color:var(--teal);font-weight:600">← First call</span></div>
+          <div class="contact"><strong>Dr. Hamid Moradkhani</strong> — CCHR Director · <em>hmoradkhani@ua.edu</em></div>
+          <div class="contact"><strong>Mike Gremillion</strong> — GWSC Director</div>
+          <div class="contact"><strong>Lanna Nations</strong> — Research Education &amp; Outreach</div>
+          <div class="contact"><strong>Hannah Holcomb</strong> — Program Manager · <em>heholcomb1@ua.edu</em></div>
+        </div>
+      </div>
+
+      <!-- AMP -->
+      <div class="org-card amp">
+        <div class="org-name">AMP — Alabama Mobility &amp; Power Center</div>
+        <div class="org-loc">28 Kirkbride Lane, Tuscaloosa · amp.contact@ua.edu · 205-348-2818</div>
+        <div class="org-body">
+          UA's EV battery and smart-grid innovation hub — partners: UA, Alabama Power, Mercedes-Benz. Focused on batteries, charging infrastructure, and grid resilience rather than water directly, but a critical bridge to <strong>Alabama Power</strong> (which operates major Coosa &amp; Tallapoosa hydropower) and a real pilot environment for energy-tech founders. <em>Note: Dan Blakley has departed UA — route to Oatridge directly or UA's Office for Innovation &amp; Commercialization.</em>
+        </div>
+        <div class="org-contacts">
+          <div class="org-contacts-label">Key Contacts</div>
+          <div class="contact"><strong>Mike Oatridge</strong> — Executive Director, AMP</div>
+          <div class="contact"><strong>Dr. Allen Parrish</strong> — Executive Director, Alabama Transportation Institute (AMP's parent)</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MAPPING TABLE -->
+  <div class="section">
+    <div class="section-label">Cohort Analysis</div>
+    <h2>How Your 20 Companies Map to the Ecosystem</h2>
+
+    <table class="map-table">
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>NOAA / NWC</th>
+          <th>USGS / HIF</th>
+          <th>AWI</th>
+          <th>AMP</th>
+          <th>Priority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="tier-anchor">
+          <td>Palaver AI</td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-anchor">Anchor</span></td>
+        </tr>
+        <tr class="tier-anchor">
+          <td>Indra Tech</td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-anchor">Anchor</span></td>
+        </tr>
+        <tr class="tier-anchor">
+          <td>Aquafer Technologies</td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-anchor">Anchor</span></td>
+        </tr>
+        <tr class="tier-high">
+          <td>Stellamatics</td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-high">High</span></td>
+        </tr>
+        <tr class="tier-high">
+          <td>Utilyze</td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-high">High</span></td>
+        </tr>
+        <tr class="tier-high">
+          <td>Air To Water Generators</td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-high">High</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>Diversican</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>GridSpot</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>Nexerios</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-high">High</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>Forsee</td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>Soil Ecoculture</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-med">Med</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-med">
+          <td>GrowMo</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-med">Med</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Sunnybotics</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>The Atlantis Labs</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Greenova8</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Ecohero</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-low">Low</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Quantisage</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Digital Tap AI</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>Bitebox</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+        <tr class="tier-gen">
+          <td>CanopIQ</td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-dash">—</span></td>
+          <td><span class="badge b-tier-gen">General</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="legend">
+      <div class="legend-item"><span class="badge b-high">High</span> Strong, direct value</div>
+      <div class="legend-item"><span class="badge b-med">Med</span> Meaningful, worth pursuing</div>
+      <div class="legend-item"><span class="badge b-low">Low</span> Tangential</div>
+      <div class="legend-item"><span class="badge b-dash">—</span> No meaningful fit</div>
+      <div class="legend-item" style="color:var(--navy);font-size:11px;">Left border = priority tier</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMPANY CARDS -->
+  <div class="section">
+    <div class="section-label">Company-by-Company</div>
+    <h2>Best Connections &amp; Next Steps</h2>
+
+    <div class="company-grid">
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Palaver AI</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">AI operating fabric (SCADAlogs.ai) unifying SCADA, financial &amp; infrastructure data for water utilities.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">CIROH's hydroinformatics theme is a direct mirror. NWM data streams and the new USGS Water Data API are natural input layers. AWI itself is a realistic first pilot customer.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Introduce to Matt Womble (AWI) as a potential institutional pilot; connect with Steve Burian (CIROH) on hydroinformatics integration.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Indra Tech</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">Reservoir Guard — AI-powered reservoir operations optimization for water utilities.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">Dr. Moradkhani's CCHR at AWI literally does reservoir operations and compound-flooding modeling. Free NWM forecasts and USGS's 130+ Alabama streamgages are the data backbone Reservoir Guard needs.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Facilitate a direct meeting with Dr. Hamid Moradkhani (hmoradkhani@ua.edu). Connect with Darrell Lambeth (USGS Tuscaloosa) for streamgage access and warm intros to state water managers.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Aquafer Technologies</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">Next-gen materials for complex contaminant capture — TRL 5, seeking first municipal and federal customers.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">USGS NAWQA data maps exactly where Aquafer's materials are most needed (PFAS in Coosa/Neely Henry Lake). HIF flume can test filtration media under controlled flow. NOAA's IWRSS consortium is the federal customer base Fuhar is targeting.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Arrange HIF lab tour with Derek Bussan and explore formal instrument-evaluation conversation. Connect to AWI Faculty Fellowship for academic validation co-investigator.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Stellamatics</div>
+          <span class="co-tag tag-ind">Industrial</span>
+        </div>
+        <div class="co-line">Autonomous underwater robots that clean ship propellers in-port, cutting fuel costs 10–40%.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">HIF's wave basin and tilting flume are legitimate test environments. USGS has already partnered with Jaia Robotics and Deep Analytics through FLOW Academy — a clear template for commercial hardware evaluation.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">This is a real pilot opportunity, not just mentorship. Introduce Ali to Derek Bussan with the Jaia Robotics precedent explicitly cited — try to set up an evaluation conversation during the event itself.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Utilyze</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">Alerts utility end-customers about gas and water leaks to prevent insurance claims and damages.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">USGS NGWOS is building smart sensor networks and has a commercial instrument evaluation pathway at HIF. CIROH's municipal utility network provides warm pilot-customer introductions.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Connect Kenny with Derek Bussan (HIF) re: commercial sensor evaluation. Route through AWI outreach (Lanna Nations) to CIROH's municipal utility consortium for pilot intros.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Air To Water Generators</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">Solves contaminated tap water by turning atmospheric moisture into clean drinking water.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">NOAA's atmospheric humidity/dewpoint datasets are useful for generator siting and efficiency modeling. AWI's GWSC serves federal and NGO clients in water-stressed regions — the same government channels Darian wants to reach.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Ed Clark (NWC) or Mike Gremillion (GWSC) as connectors to FEMA/DoD emergency water supply programs. Flag NOAA's open atmospheric datasets as a siting-tool differentiator.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Nexerios</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">Automated event-driven dynamic pricing for EV charging operators using existing session data.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AMP has a live 5G ORAN smart-grid testbed and a direct Alabama Power EV infrastructure partnership — the most natural AMP-founder connection in the cohort. Nikhil needs pilot customers; this is a warm path.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Introduce directly to Mike Oatridge (amp.contact@ua.edu). AMP's Alabama Power partnership could serve as both a pilot environment and a warm channel into Alabama Power's EV charging program.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">GridSpot</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">Software platform helping SMBs reduce unpredictable energy costs with actionable savings recommendations.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AMP's Alabama Power relationship and smart-grid data access directly address Mondrell's top mentor need: navigating utility partnerships. Alabama Power is also a realistic reference customer.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Connect to Mike Oatridge (AMP) for a "how to navigate utility partnerships" conversation — he's built exactly these relationships and can make a warm Alabama Power intro.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Diversican Corporation</div>
+          <span class="co-tag tag-water">WaterTech</span>
+        </div>
+        <div class="co-line">Patented dewatering centrifuge that boosts wastewater biosolids cake solids to 30%+, cutting hauling costs.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AWI has wastewater research connections through UA civil engineering and can connect Nhut to Alabama wastewater operators through the AWPCA network — Diversican's core customer base.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Route to Hannah Holcomb (AWI, heholcomb1@ua.edu) for municipal operator connections in Alabama. Flag USGS Cooperative Matching Funds as a future mechanism once a utility pilot is secured.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Forsee</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">Sustainable, climate-resilient materials that protect communities and restore ecosystems.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AWI's CONSERVE group (Dr. Fedoroff) focuses on nature-based solutions and built-environment resilience — a direct research match. CIROH's social and behavioral water science theme addresses community resilience communication.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Connect Chera to Dr. Michael Fedoroff (CONSERVE/AWI) as a research validation partner. AWI Faculty Fellowship program is a path to academic co-development.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">Soil Ecoculture</div>
+          <span class="co-tag tag-ag">Ag &amp; Food</span>
+        </div>
+        <div class="co-line">Decarbonizes agriculture via regenerative farm implementation, seed marketplace, and DeterX AI carbon verification.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AWI's CONSERVE group and precision-agriculture faculty connect to soil carbon and irrigation efficiency. Loose fit, but meaningful for U.S. market credibility-building as Sumukha expands from India.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Intro to AWI's CONSERVE team and Water-R2O traineeship coordinator for potential U.S. research partnerships. Primarily useful for academic credibility and climate-ag investor network access.</div>
+      </div>
+
+      <div class="co-card">
+        <div class="co-header">
+          <div class="co-name">GrowMo</div>
+          <span class="co-tag tag-ag">Ag &amp; Food</span>
+        </div>
+        <div class="co-line">Affordable cameras with AI detecting pests and disease anomalies early for small-scale hydroponic farmers.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AWI is a weak direct fit but its Water-R2O NSF traineeship could serve as a technical talent pipeline for the engineering hires Daniel needs.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Flag AWI's grad student network as a hiring resource. Daniel's primary event value will be AgTech-focused mentors and hydroponics operator networks — focus there over federal water orgs.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Sunnybotics</div>
+          <span class="co-tag tag-ind">Industrial</span>
+        </div>
+        <div class="co-line">Robotics and AI to automate workflows in utility-scale solar operations.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AMP is battery/EV-primary, not solar O&M — but Oatridge's corporate partnership playbook (Big Auto → UA → Alabama Power → MBUSI) is a valuable GTM mentorship for navigating utility-scale customers.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Mike Oatridge (AMP) as a "navigating large utility/OEM customers" mentor rather than a domain expert. Camilo's primary event value is the corporate development perspective.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">The Atlantis Labs</div>
+          <span class="co-tag tag-ind">Industrial</span>
+        </div>
+        <div class="co-line">Optimizes energy, hardware uptime, and reduces costs for industrial and commercial operations.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AMP's battery lab and grid testbed are adjacent customer environments where energy management software could have a use case. Light connection.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">AMP as a "future customer environment" framing rather than a deep partnership. Ali's top mentor needs (sales, general strategy) are best served by Techstars' general network.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Greenova8</div>
+          <span class="co-tag tag-fin">FinTech</span>
+        </div>
+        <div class="co-line">Tokenization platform turning solar farms and wind projects into fractional $100 investments with monthly yield.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AMP's project pipeline (solar, batteries, EV) could eventually provide real assets for Greenova8 to tokenize. Very loose near-term fit.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Flag AMP as a "future deal pipeline" conversation once Ibrahim has U.S. regulatory clarity. Primary needs (fundraising, legal) are general Techstars mentor territory.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Ecohero</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">Transforms waste into data and monetizable value through an AI-powered ecosystem platform.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">AWI's sustainability outreach is tangentially relevant. Edgar's primary needs (GTM, marketing, fundraising) are best addressed through Techstars' general mentor network.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Light AWI connection via CIROH's outreach team (Lanna Nations) if relevant. Focus event experience on GTM and marketing mentor sessions.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Quantisage</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">SAGE AI — real-time Scope 3 carbon compliance platform auto-generating audit-ready CBAM and SB-253 filings.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">No strong fit with any of the four orgs. Vir's needs (enterprise sales, EU regulatory, investor narrative) are general Techstars mentor territory requiring climate-tech and enterprise SaaS expertise.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Prioritize Techstars' climate-tech VC and enterprise SaaS mentor network over ecosystem org connections for Quantisage.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Digital Tap AI</div>
+          <span class="co-tag tag-clean">Cleantech</span>
+        </div>
+        <div class="co-line">Optimizes cloud compute clusters to eliminate wasted spend and reduce environmental impact.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">Loose connection — CIROH uses 2i2c JupyterHub for cloud compute, potentially making AWI a future customer conversation. No direct fit otherwise.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Anthony's priorities (pilots, hiring, enterprise sales) are Techstars general-mentor territory. Could flag AWI/CIROH cloud infrastructure as a future customer angle.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">Bitebox</div>
+          <span class="co-tag tag-food">Food &amp; Bev</span>
+        </div>
+        <div class="co-line">AI-powered ecosystem eliminating food waste in hospitality by bridging restaurant production and consumer demand.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">No fit with any of the four orgs. Sustainability framing is real but not a water or energy connector.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Adey's needs (restaurant sales, fundraising, legal/IP) are food-tech and impact-investment mentor territory. No ecosystem org connection to prioritize.</div>
+      </div>
+
+      <div class="co-card no-fit">
+        <div class="co-header">
+          <div class="co-name">CanopIQ</div>
+          <span class="co-tag tag-ag">Ag &amp; Food</span>
+        </div>
+        <div class="co-line">AI plant diagnostics and METRC compliance automation for licensed cannabis cultivation facilities.</div>
+        <div class="co-fit-label">Best Fit</div>
+        <div class="co-fit-text">No fit with any of the four orgs. Controlled-environment ag is adjacent to AWI's precision-ag research but too niche for a meaningful connection here.</div>
+        <div class="co-action-label">Action</div>
+        <div class="co-action-text">Ryan's priorities (enterprise sales, investor intros, architecture review) need AgTech and cannabis-sector mentors. No ecosystem org connection to pursue.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- EVENT PROGRAMMING -->
+  <div class="section">
+    <div class="section-label">Event Design</div>
+    <h2>Suggested Programming Structure</h2>
+
+    <div class="event-grid">
+
+      <div class="event-card all">
+        <div class="event-title">Shared Experience — Full Cohort</div>
+        <div class="event-item"><strong>HIF Lab Tour</strong> with Derek Bussan — the tow tank, flume, and wave basin set the stage for "WaterTown, USA." Reserve 2–3 hours. Unreplicable anywhere else in the country.</div>
+        <div class="event-item"><strong>NWC Operations Floor</strong> with Ed Clark — the NWM situation rooms. Every founder leaves understanding the federal data infrastructure beneath their product.</div>
+        <div class="event-item"><strong>Government Sales Panel</strong> (Clark + Bussan + Womble) — SBIR, cooperative agreements, CRADAs, and federal pilots. Every company in the cohort needs this, regardless of sector.</div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-title">Water-Tech Deep Dive Track</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:10px;">Palaver AI · Indra Tech · Aquafer · Utilyze · Diversican · Air To Water</div>
+        <div class="event-item"><strong>Dr. Moradkhani (CCHR/AWI)</strong> — reservoir operations and water utility AI. Direct match for Indra Tech and Palaver AI.</div>
+        <div class="event-item"><strong>CIROH Hydroinformatics Session</strong> — open data pipelines, NWM APIs, NGIAB demo. Hands-on with federal data.</div>
+        <div class="event-item"><strong>HIF Hardware Evaluation Meeting</strong> — Aquafer + Stellamatics dedicated conversation with Bussan to explore formal evaluation partnerships.</div>
+      </div>
+
+      <div class="event-card energy">
+        <div class="event-title">Energy &amp; Sustainability Track</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:10px;">Nexerios · GridSpot · Sunnybotics · Atlantis Labs · Greenova8 + others</div>
+        <div class="event-item"><strong>Mike Oatridge (AMP)</strong> — "Building University-Industry-Government Consortia." His arc from Big Auto to UA R&amp;D center is a real GTM story for any deep-tech founder.</div>
+        <div class="event-item"><strong>Alabama Power rep (via AMP)</strong> — utility partnership navigation, procurement timelines, pilot structures. Directly addresses GridSpot's and Nexerios' top mentor needs.</div>
+      </div>
+
+    </div>
+
+    <div class="first-call">
+      <div class="first-call-label">First Calls — Start Here</div>
+      <div class="first-call-contacts">
+        <div class="fc-item">
+          <strong>Matt Womble (AWI) — mwomble@ua.edu</strong>
+          <span>Best first call on campus. Former Saildrone, Senate Appropriations, and NWC staff — he can unlock NOAA, USGS, and CIROH access simultaneously and verify current federal leadership before you reach out cold.</span>
+        </div>
+        <div class="fc-item">
+          <strong>Mike Oatridge (AMP) — amp.contact@ua.edu</strong>
+          <span>Right call for the energy/cleantech track and Alabama Power access. Do not route through Dan Blakley — he has left UA.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
