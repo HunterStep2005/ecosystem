@@ -409,6 +409,25 @@
     margin: 40px 0;
   }
 
+  /* ── LINKS ── */
+  .org-card .org-name a {
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--teal);
+    transition: color .15s, border-color .15s;
+  }
+  .org-card .org-name a:hover {
+    color: var(--teal);
+    border-color: var(--sky);
+  }
+  .org-card.amp .org-name a {
+    border-bottom-color: #e07a40;
+  }
+  .org-card.amp .org-name a:hover {
+    color: #e07a40;
+    border-color: #e07a40;
+  }
+
   /* ── PRINT ── */
   @media print {
     body { background: white; }
@@ -445,7 +464,7 @@
 
       <!-- NOAA -->
       <div class="org-card">
-        <div class="org-name">NOAA — National Water Center</div>
+        <div class="org-name"><a href="https://water.noaa.gov/about/nwc" target="_blank">NOAA — National Water Center</a></div>
         <div class="org-loc">205 Hackberry Lane, Tuscaloosa · on UA's campus</div>
         <div class="org-body">
           The only federal facility of its kind — the NWC runs the <strong>National Water Model</strong>, forecasting streamflow on 2.7 million stream reaches daily. It's the operational brain behind national flood mapping and the IWRSS consortium (NOAA + USGS + USACE + FEMA). Connected to UA through <strong>CIROH</strong>, a $360M NOAA cooperative institute — the largest external award in UA history — giving founders direct access to an open data stack, cloud compute, and 28-institution research network.
@@ -461,7 +480,7 @@
 
       <!-- USGS -->
       <div class="org-card">
-        <div class="org-name">USGS — Hydrologic Instrumentation Facility</div>
+        <div class="org-name"><a href="https://www.usgs.gov/labs/hydrologic-instrumentation-facility" target="_blank">USGS — Hydrologic Instrumentation Facility</a></div>
         <div class="org-loc">27 Kirkbride Lane, Tuscaloosa · opened Aug 2024</div>
         <div class="org-body">
           A $38.5M national lab relocated from Stennis Space Center — 92,000 sq ft with a <strong>350-ft tow tank</strong> (national velocity calibration reference), 230-ft tilting flume, 100×24 ft wave basin, and the Network Operations Center for all USGS hydrologic monitoring. For sensor, robotics, or hardware founders, this is the gold-standard test environment in North America. Already partners with commercial startups (Jaia Robotics, Deep Analytics) via the FLOW Academy.
@@ -477,7 +496,7 @@
 
       <!-- AWI -->
       <div class="org-card">
-        <div class="org-name">Alabama Water Institute (AWI)</div>
+        <div class="org-name"><a href="https://awi.ua.edu" target="_blank">Alabama Water Institute (AWI)</a></div>
         <div class="org-loc">Cyber Hall, 24 Kirkbride Lane, Tuscaloosa · awi@ua.edu · 205-348-5094</div>
         <div class="org-body">
           UA's umbrella water research organization — and the connective tissue for everything on this list. Houses CIROH, the Global Water Security Center, Center for Complex Hydrosystems Research (compound flooding &amp; reservoir ops), and CONSERVE (nature-based solutions). 100+ affiliated faculty, no current branded accelerator. <strong>Techstars fills a clear white space here.</strong> Start every conversation through AWI.
@@ -494,7 +513,7 @@
 
       <!-- AMP -->
       <div class="org-card amp">
-        <div class="org-name">AMP — Alabama Mobility &amp; Power Center</div>
+        <div class="org-name"><a href="https://amp.ua.edu" target="_blank">AMP — Alabama Mobility &amp; Power Center</a></div>
         <div class="org-loc">28 Kirkbride Lane, Tuscaloosa · amp.contact@ua.edu · 205-348-2818</div>
         <div class="org-body">
           UA's EV battery and smart-grid innovation hub — partners: UA, Alabama Power, Mercedes-Benz. Focused on batteries, charging infrastructure, and grid resilience rather than water directly, but a critical bridge to <strong>Alabama Power</strong> (which operates major Coosa &amp; Tallapoosa hydropower) and a real pilot environment for energy-tech founders. <em>Note: Dan Blakley has departed UA — route to Oatridge directly or UA's Office for Innovation &amp; Commercialization.</em>
